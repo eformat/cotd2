@@ -35,11 +35,6 @@ error_log('item='.$item);
 	<script src="js/index.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script src="js/swipe-page.js"></script>
-
-	<javascript>
-		('#demo-page').css( {backgroundImage: url(images/perth.jpg) } ); 
-	</javascript>
-
 </head>
 <body>
 
@@ -47,7 +42,7 @@ error_log('item='.$item);
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="d">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-				To navigate, swipe left to cycle though the choices. Swipe right to pick your favourite.
+				To navigate, swipe left or right to cycle though the choices. The left and right arrow buttons act similarly. Click Trivia to find out more about the current item. Click Like to mark it as a favourite.
 			</div>
 
 	<div data-role="header" data-position="fixed" data-fullscreen="true" data-id="hdr" data-tap-toggle="false">
@@ -71,6 +66,10 @@ error_log('item='.$item);
         	<a href="#" class="prev" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-theme="d">Previous</a>
         	<a href="#" class="next" data-role="button" data-icon="arrow-r" data-iconpos="notext" data-theme="d">Next</a>
         </div>
+
+		<div style="text-align:center;" class="control like-btn ui-btn-center">
+		<a href="#" class="like" data-inline="true"  data-role="button" data-icon="star" data-iconpos="left" data-theme="d" data-mini="true">Like</a>
+		</div>
 
 		<a href="#trivia" data-rel="popup" class="trivia-btn ui-btn-right" data-role="button" data-icon="info" data-iconpos="left" data-theme="d" data-mini="true">Trivia</a>
     </div><!-- /footer -->

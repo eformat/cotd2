@@ -5,7 +5,7 @@ include('rank.php');
 
 $_SESSION['favorite'] = $_SERVER['QUERY_STRING'];
 if ($_SESSION['favorite']!=null) {
-  error_log($_SERVER['REMOTE_ADDR']." ". $_SERVER['HTTP_X_FORWARDED_FOR']." --> Favorite is --> ".$_SESSION['favorite']);
+  error_log($_SERVER['REMOTE_ADDR']." "." --> Favorite is --> ".$_SESSION['favorite']);
 }
 
 $items = $_SESSION['items'];
@@ -16,7 +16,7 @@ $_SESSION['lastitem'] = $ranks[sizeof($ranks)-1];
 $i = 0;
 foreach ($items as $item) {
   $_SESSION['next'][$i] = $_SESSION['topitem'];
-  $_SESSION['prev'][$i] = $item;
+  $_SESSION['prev'][$i] = $_SESSION['lastitem'];
   $i = $i + 1;
 }
 
@@ -28,6 +28,9 @@ foreach ($items as $item) {
       $_SESSION['rank'][$i] = $j;
       if ($rank != $_SESSION['lastitem']) { 
           $_SESSION['next'][$i] = $ranks[$j+1]; 
+      }
+      if ($rank != $_SESSION['topitem']) { 
+          $_SESSION['prev'][$i] = $ranks[$j-1]; 
       }
     }
     $j = $j + 1;

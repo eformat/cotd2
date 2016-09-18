@@ -19,6 +19,13 @@ So we position the buttons from the bottom. */
     bottom: 7px;
     margin: 0;
 }
+
+.like-btn.ui-btn-center {
+    top: auto;
+    bottom: 7px;
+    margin: 0;
+}
+
 /* Custom styling for the trivia source */
 small {
     font-size: .75em;

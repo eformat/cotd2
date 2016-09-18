@@ -16,12 +16,17 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
             $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide" });
         });
 
-        var favourite = $(this).attr("id");
         $( document ).on( "swiperight", page, function() {
-            alert("You have chosen " + $(this).attr("id") + " as your favourite.");
-            console.log("Favourite --> " + $(this).attr("id") );
-            location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite;
+            // $.mobile.changePage( next + ".php", { transition: "slide" });
+            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide" });
         });
+
+        var favourite = $(this).attr("id");
+        //$( document ).on( "swiperight", page, function() {
+        //    alert("You have chosen " + $(this).attr("id") + " as a favourite.");
+        //    console.log("Favourite --> " + $(this).attr("id") );
+        //    location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite;
+        //});
 
         // $( ".control .prev", page ).addClass( "ui-disabled" );
         // $( ".control .next", page ).addClass( "ui-disabled" );
@@ -30,7 +35,11 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            alert("You have chosen " + favourite + " as your favourite.");
+            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide" });
+        });
+
+        $( ".control .like", page ).on( "click", function() {
+            alert("You have chosen " + favourite + " as a favourite.");
             console.log("Favourite --> " + favourite );
             location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite;
         });
