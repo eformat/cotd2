@@ -8,17 +8,18 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         prev = $( this ).jqmData( "prev" );
 
         // Prefetch the next page
-        //$.mobile.loadPage( next + ".php" );
+        //$.mobile.loadPage( "item.php?nextpage=" + next);
+        //$.mobile.loadPage( "item.php?nextpage=" + prev);
 
         // Navigate to next page on swipe left
         $( document ).on( "swipeleft", page, function() {
             // $.mobile.changePage( next + ".php", { transition: "slide" });
-            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide" });
+            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false" });
         });
 
         $( document ).on( "swiperight", page, function() {
             // $.mobile.changePage( next + ".php", { transition: "slide" });
-            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide" });
+            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false" });
         });
 
         var favourite = $(this).attr("id");
@@ -31,11 +32,11 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         // $( ".control .prev", page ).addClass( "ui-disabled" );
         // $( ".control .next", page ).addClass( "ui-disabled" );
         $( ".control .next", page ).on( "click", function() {
-            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide" });
+            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false" });
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide" });
+            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false" });
         });
 
         $( ".control .like", page ).on( "click", function() {

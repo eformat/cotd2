@@ -35,6 +35,14 @@ error_log('item='.$item);
 	<script src="js/index.js"></script>
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script src="js/swipe-page.js"></script>
+
+<script>
+$.ajaxSetup ({
+// Disable caching of AJAX responses
+cache: false
+});
+</script>
+
 </head>
 <body>
 
