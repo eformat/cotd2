@@ -1,7 +1,7 @@
 <?php
 
-// Change item rankings and associated data here
-// If adding new entries then also update swipe-page.css and images directory
+// Change item rankings and related attribute data here
+// If adding new entries than also add associated image
 
 if (!isset($_SESSION)) { session_start(); }
 
@@ -19,7 +19,9 @@ $_SESSION['ranks'] = array(
     'christchurch'
 );
 
-// Item data goes from here
+// Item attribute data goes from here
+// Maintain order as per 'item' array
+
 $_SESSION['items'] = array( 
     'adelaide',
     'melbourne',
