@@ -36,10 +36,14 @@ error_log('item='.$item);
 	<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 	<script src="js/swipe-page.js"></script>
 
+	<javascript>
+		('#demo-page').css( {backgroundImage: url(images/perth.jpg) } ); 
+	</javascript>
+
 </head>
 <body>
 
-<div data-role="page" id=<?php echo $item; ?> class="demo-page" data-dom-cache="true" data-theme="a" data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
+<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'images/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="d">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>

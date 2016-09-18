@@ -8,8 +8,8 @@ if (!isset($_SESSION)) { session_start(); }
 // Change ranking order here
 $_SESSION['ranks'] = array( 
     'adelaide',
-    'melbourne',
     'canberra',
+    'melbourne',
     'auckland',
     'sydney',
     'brisbane',

@@ -1,4 +1,4 @@
-/* Set the background image sources */
+/* Set the background image sources
 #sydney { background-image: url(../images/sydney.jpg); }
 #melbourne { background-image: url(../images/melbourne.jpg); }
 #adelaide { background-image: url(../images/adelaide.jpg); }
@@ -9,7 +9,7 @@
 #auckland { background-image: url(../images/auckland.jpg); }
 #wellington { background-image: url(../images/wellington.jpg); }
 #christchurch { background-image: url(../images/christchurch.jpg); }
-
+*/
 
 /* Background settings */
 .demo-page {
