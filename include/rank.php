@@ -20,7 +20,7 @@ $_SESSION['ranks'] = array(
 );
 
 // Item attribute data goes from here
-// Maintain order as per 'item' array
+// Maintain order as per 'items' array
 
 $_SESSION['items'] = array( 
     'adelaide',
