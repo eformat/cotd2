@@ -14,12 +14,14 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         // Navigate to next page on swipe left
         $( document ).on( "swipeleft", page, function() {
             // $.mobile.changePage( next + ".php", { transition: "slide" });
-            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false" });
+            //$.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            location.href= "item.php?nextpage="+next;
         });
 
         $( document ).on( "swiperight", page, function() {
             // $.mobile.changePage( next + ".php", { transition: "slide" });
-            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false" });
+            // $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            location.href= "item.php?nextpage="+prev;
         });
 
         var favourite = $(this).attr("id");
@@ -32,11 +34,13 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         // $( ".control .prev", page ).addClass( "ui-disabled" );
         // $( ".control .next", page ).addClass( "ui-disabled" );
         $( ".control .next", page ).on( "click", function() {
-            $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false" });
+            // $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            location.href= "item.php?nextpage="+next;
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false" });
+            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            location.href= "item.php?nextpage="+prev;
         });
 
         $( ".control .like", page ).on( "click", function() {
