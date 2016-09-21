@@ -8,8 +8,8 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         prev = $( this ).jqmData( "prev" );
 
         // Prefetch the next page
-        //$.mobile.loadPage( "item.php?nextpage=" + next);
-        //$.mobile.loadPage( "item.php?nextpage=" + prev);
+        $.mobile.loadPage( "item.php?nextpage=" + next);
+        $.mobile.loadPage( "item.php?nextpage=" + prev);
 
         // Navigate to next page on swipe left
         $( document ).on( "swipeleft", page, function() {
