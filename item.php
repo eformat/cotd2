@@ -59,7 +59,6 @@ cache: false
 	};
 
 	var ratingqp = getQueryString('rating');
-	// Comment
 	
 	var rating = 0;
 	if (ratingqp != null) { rating = ratingqp; }
