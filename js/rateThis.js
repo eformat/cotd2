@@ -62,7 +62,6 @@
 				}
 			}
 			
-
 			$this.next().find('.rateThis-obj').each(function( index ){
 				if(!root.zero) index++;
 
