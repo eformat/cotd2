@@ -1,4 +1,5 @@
 
+
 $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         var page = "#" + $( this ).attr( "id" ),
 
@@ -44,9 +45,9 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         });
 
         $( ".control .like", page ).on( "click", function() {
-            alert("You have chosen " + favourite + " as a favourite.");
-            console.log("Favourite --> " + favourite );
-            location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite;
+            alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
+            console.log("Favourite --> " + favourite + "with Rating -->" + rating);
+            location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite+"&rating=" + rating;
         });
 
 });
