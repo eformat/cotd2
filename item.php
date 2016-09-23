@@ -48,9 +48,6 @@ cache: false
 
     <script type="text/javascript">
 
-	var likes = [];
-	var likeadelaide;
-
 	var getQueryString = function ( field, url ) {
     	var href = url ? url : window.location.href;
     	var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );

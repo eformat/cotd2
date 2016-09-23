@@ -40,11 +40,12 @@ $( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            // $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
             location.href= "item.php?nextpage="+prev;
         });
 
         $( ".control .like", page ).on( "click", function() {
+            // Alert
             alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
             console.log("Favourite --> " + favourite + "with Rating -->" + rating);
             location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite+"&rating=" + rating;

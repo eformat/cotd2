@@ -8,6 +8,13 @@ if ($_SESSION['favorite']!=null) {
   error_log($_SERVER['REMOTE_ADDR']." "." --> Favorite is --> ".$_SESSION['favorite']);
 }
 
+$rating = 0;
+$nextpage = '';
+parse_str($_SERVER['QUERY_STRING']);
+if ($rating != null and $nextpage != null) {
+  $_SESSION['rating_'.$nextpage] = $rating;
+}
+
 $items = $_SESSION['items'];
 $ranks = $_SESSION['ranks'];
 $_SESSION['topitem'] = $ranks[0];
