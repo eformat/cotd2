@@ -1,54 +1,56 @@
 
 
-$( document ).on( "pageinit", "[data-role='page'].demo-page", function() {
-        var page = "#" + $( this ).attr( "id" ),
+$( document ).on( 'pageinit', "[data-role='page'].demo-page", function() {
+    
+    next = null;
+    prev = null;
+    rating = null;
+    var page = "#" + $( this ).attr( "id" );
 
-        // Get the filename of the next page that we stored in the data-next attribute
-        next = $( this ).jqmData( "next" );
-        // Get the filename of the previous page that we stored in the data-prev attribute
-        prev = $( this ).jqmData( "prev" );
+    next = $( this ).jqmData( "next" );    
+    prev = $( this ).jqmData( "prev" );    
+    rating = $( this ).jqmData( "rating" );
 
-        // Prefetch the next page
-        $.mobile.loadPage( "item.php?nextpage=" + prev);
-        $.mobile.loadPage( "item.php?nextpage=" + next);
+    if ( next != null ) {
 
-        // Navigate to next page on swipe left
+        var favourite = $(this).attr("id");
+
+        // alert("Page="+page+" Next="+next);
+
         $( document ).on( "swipeleft", page, function() {
-            // $.mobile.changePage( next + ".php", { transition: "slide" });
-            //$.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+            // pageContainer causing problems
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+next, { transition: 'slide' });
             location.href= "item.php?nextpage="+next;
         });
 
-        $( document ).on( "swiperight", page, function() {
-            // $.mobile.changePage( next + ".php", { transition: "slide" });
-            // $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
+        $( document ).on( "swiperight", page, "[data-role='page'].demo-page", function() {
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+next, { transition: 'slide', reverse: 'true' });
             location.href= "item.php?nextpage="+prev;
         });
 
-        var favourite = $(this).attr("id");
-        //$( document ).on( "swiperight", page, function() {
-        //    alert("You have chosen " + $(this).attr("id") + " as a favourite.");
-        //    console.log("Favourite --> " + $(this).attr("id") );
-        //    location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite;
-        //});
-
-        // $( ".control .prev", page ).addClass( "ui-disabled" );
-        // $( ".control .next", page ).addClass( "ui-disabled" );
         $( ".control .next", page ).on( "click", function() {
-            // $.mobile.changePage( "item.php?nextpage=" + next, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
             location.href= "item.php?nextpage="+next;
         });
 
         $( ".control .prev", page ).on( "click", function() {
-            // $.mobile.changePage( "item.php?nextpage=" + prev, { transition: "slide", changeHash: "false", allowSamePageTransition: "true" });
             location.href= "item.php?nextpage="+prev;
         });
 
         $( ".control .like", page ).on( "click", function() {
-            // Alert
-            alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
-            console.log("Favourite --> " + favourite + "with Rating -->" + rating);
-            location.href= "item.php?nextpage="+favourite + "&favorite=" + favourite+"&rating=" + rating;
+            // alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
+            console.log("Favourite --> " + favourite + " with Rating -->" + rating);
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating;
         });
+
+        $( ".control .hate", page ).on( "click", function() {
+            rating = 0;
+            // alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
+            console.log("Favourite --> " + favourite + " with Rating -->" + rating);
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating;
+        });
+
+    }
 
 });

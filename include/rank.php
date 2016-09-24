@@ -3,7 +3,7 @@
 // Change item rankings and related attribute data here
 // If adding new entries than also add associated image
 
-if (!isset($_SESSION)) { session_start(); }
+//if (!isset($_SESSION)) { session_start(); }
 
 // Change ranking order here
 $_SESSION['ranks'] = array( 

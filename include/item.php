@@ -1,18 +1,19 @@
 <?php
 
-if (!isset($_SESSION)) { session_start(); }
+if(!isset($_SESSION)) session_start();
+
 include('rank.php');
+$items = $_SESSION['items'];
+$i = 0;
+foreach ($items as $item) {
+  if ( isset($_SESSION['ratings'][$i]) > 0 ) {}
+  else { $_SESSION['ratings'][$i] = 0; } 
+  $i=$i+1;
+}
 
 $_SESSION['favorite'] = $_SERVER['QUERY_STRING'];
 if ($_SESSION['favorite']!=null) {
   error_log($_SERVER['REMOTE_ADDR']." "." --> Favorite is --> ".$_SESSION['favorite']);
-}
-
-$rating = 0;
-$nextpage = '';
-parse_str($_SERVER['QUERY_STRING']);
-if ($rating != null and $nextpage != null) {
-  $_SESSION['rating_'.$nextpage] = $rating;
 }
 
 $items = $_SESSION['items'];

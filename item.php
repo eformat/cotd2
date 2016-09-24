@@ -1,15 +1,12 @@
 <?php
 
-if (!isset($_SESSION)) { session_start(); }
+if(!isset($_SESSION)) session_start();
 
-$nextpage = '';
-parse_str($_SERVER['QUERY_STRING']);
 include('include/item.php');
-if ($nextpage != '' ) {
-	$item = $nextpage;
-} else {
-	$item = $_SESSION['topitem'];
-}
+parse_str($_SERVER['QUERY_STRING']);
+
+if ( isset($nextpage) ) { $item = $nextpage; } 
+else { $item = $_SESSION['topitem']; }
 
 $itemno = 0;
 $i = 0;
@@ -17,7 +14,14 @@ foreach ($_SESSION['items'] as $iteminlist) {
 	if ($item == $iteminlist) { $itemno = $i; }
 	$i = $i + 1;
 }
-error_log('item='.$item);
+
+$ratingsession = $_SESSION['ratings'][$itemno];
+if ( isset($rating) ) { 
+	error_log('Rating being reset to '.$rating);
+	$_SESSION['ratings'][$itemno] = $rating; 
+}
+
+error_log('item='.$item.' with rating='.$_SESSION['ratings'][$itemno]);
 
 ?>
 
@@ -68,7 +72,7 @@ cache: false
 </head>
 <body>
 
-<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'images/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
+<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'images/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-rating=<?php echo $_SESSION['ratings'][$itemno]; ?> data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
@@ -107,10 +111,11 @@ cache: false
 
         </div>
 
-		<div style="text-align:center;" class="control like-btn ui-btn-center">
-		<a href="#" class="like" data-inline="true"  data-role="button" data-theme="d" data-mini="true">Like Me!</a>
-
+		<div style="text-align:center;" class="control like-btn ui-btn-center" data-inline="true" >
+		<a href="#" class="like" data-inline="true"  data-icon="check" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Save</a>
+		<a href="#" class="hate" data-inline="true"  data-icon="delete" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Cancel</a>
 		</div>
+
 
 		<a href="#trivia" data-rel="popup" class="trivia-btn ui-btn-right" data-role="button" data-icon="info" data-iconpos="left" data-theme="d" data-mini="true">Trivia</a>
     </div><!-- /footer -->
