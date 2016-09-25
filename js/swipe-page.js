@@ -5,15 +5,14 @@ $( document ).on( 'pageinit', "[data-role='page'].demo-page", function() {
     next = null;
     prev = null;
     rating = null;
-    var page = "#" + $( this ).attr( "id" );
+    var item = $(this).attr("id");
+    var page = "#" + item;
 
     next = $( this ).jqmData( "next" );    
     prev = $( this ).jqmData( "prev" );    
     rating = $( this ).jqmData( "rating" );
 
     if ( next != null ) {
-
-        var favourite = $(this).attr("id");
 
         // alert("Page="+page+" Next="+next);
 
@@ -36,19 +35,17 @@ $( document ).on( 'pageinit', "[data-role='page'].demo-page", function() {
             location.href= "item.php?nextpage="+prev;
         });
 
-        $( ".control .like", page ).on( "click", function() {
-            // alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
-            console.log("Favourite --> " + favourite + " with Rating -->" + rating);
-            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating, { transition: 'fade' });
-            location.href= 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating;
+        $( ".control .save", page ).on( "click", function() {
+            // alert("You have chosen " + favorite + " as a favorite with " + rating + " hearts.");            
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+item+'&favourite='+item+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+item+'&favorite='+item+'&rating='+rating;
         });
 
-        $( ".control .hate", page ).on( "click", function() {
+        $( ".control .cancel", page ).on( "click", function() {
             rating = 0;
-            // alert("You have chosen " + favourite + " as a favourite with " + rating + " hearts.");            
-            console.log("Favourite --> " + favourite + " with Rating -->" + rating);
-            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating, { transition: 'fade' });
-            location.href= 'item.php?nextpage='+favourite+'&favorite='+favourite+'&rating='+rating;
+            // alert("You have chosen " + favorite + " as a favorite with " + rating + " hearts.");            
+            // $.mobile.pageContainer.pagecontainer('change', 'item.php?nextpage='+item+'&favourite='+item+'&rating='+rating, { transition: 'fade' });
+            location.href= 'item.php?nextpage='+item+'&favorite='+item+'&rating='+rating;
         });
 
     }

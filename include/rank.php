@@ -5,6 +5,9 @@
 
 //if (!isset($_SESSION)) { session_start(); }
 
+// Change App name tag here
+$_SESSION['app'] = 'COTD';
+
 // Change ranking order here
 $_SESSION['ranks'] = array( 
     'adelaide',

@@ -17,11 +17,30 @@ foreach ($_SESSION['items'] as $iteminlist) {
 
 $ratingsession = $_SESSION['ratings'][$itemno];
 if ( isset($rating) ) { 
-	error_log('Rating being reset to '.$rating);
 	$_SESSION['ratings'][$itemno] = $rating; 
 }
 
-error_log('item='.$item.' with rating='.$_SESSION['ratings'][$itemno]);
+// Write item ratings to php log whenever ratings are changed
+$_SESSION['favorite'] = $_SERVER['QUERY_STRING'];
+if ($_SESSION['favorite'] != null ) {
+	$logmsg = '<'. $_SESSION['app'].'> { ';
+  	$i=0;
+	$timezone = 'Australia/Sydney';  
+	$date = new DateTime('now', new DateTimeZone($timezone));
+	$localtime = $date->format('Y:m:d H:i:s');
+ 	$logmsg = $logmsg . '"items" : [ ';
+  	foreach ($_SESSION['items'] as $logitem) {
+    	if ($_SESSION['ratings'][$i] > 0 ) {
+      		$logmsg = $logmsg.'{"' .$logitem. '" : "' .$_SESSION['ratings'][$i]. '"}, ';
+    	}
+    	$i=$i+1;
+  	}
+	$logmsg = $logmsg.'"] ,';
+	$logmsg = $logmsg.' "client_ip:" : "' .get_client_ip(). '", ';
+	$logmsg = $logmsg.' "sydney_time:" : "' .$localtime. '", ';
+	$logmsg = $logmsg.' } </'.$_SESSION['app'].'>';
+	error_log($logmsg);
+}
 
 ?>
 
@@ -111,9 +130,9 @@ cache: false
 
         </div>
 
-		<div style="text-align:center;" class="control like-btn ui-btn-center" data-inline="true" >
-		<a href="#" class="like" data-inline="true"  data-icon="check" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Save</a>
-		<a href="#" class="hate" data-inline="true"  data-icon="delete" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Cancel</a>
+		<div style="text-align:center;" class="control save-btn ui-btn-center" data-inline="true" >
+		<a href="#" class="save" data-inline="true"  data-icon="check" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Save</a>
+		<a href="#" class="cancel" data-inline="true"  data-icon="delete" data-iconpos="left" data-role="button" data-theme="d" data-mini="true">Cancel</a>
 		</div>
 
 
