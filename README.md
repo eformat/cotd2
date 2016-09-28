@@ -13,9 +13,9 @@ Visit example at http://cotd-spicozzi.rhcloud.com/
 
 # Running on Openshift3
 
-    oc new-project cotd --display-name="City of the day" --description='City of the day'
-    oc new-app openshift/php:5.6~https://github.com/<repo>/cotd.git
-    oc expose svc cotd
+    oc new-project cotd2 --display-name="City of the day" --description='City of the day'
+    oc new-app openshift/php:5.6~https://github.com/<repo>/cotd2.git
+    oc expose svc cotd2
 
 # Developing on the fly in Openshift3
 
@@ -25,7 +25,7 @@ Edit the buildconfig:
     source:
       type: Git
       git:
-        uri: 'https://github.com/eformat/cotd.git'
+        uri: 'https://github.com/eformat/cotd2.git'
       secrets: null
 
     -- to this
@@ -33,11 +33,11 @@ Edit the buildconfig:
       type: Binary
 
     -- then build with
-    oc start-build --from-dir=. cotd
+    oc start-build --from-dir=. cotd2
 
 You may also wish to enable live reload for php image (don't do this in prod)
 
-    oc set env dc/cotd OPCACHE_REVALIDATE_FREQ=0
+    oc set env dc/cotd2 OPCACHE_REVALIDATE_FREQ=0
 
 # Parse the pods running statistics
 
