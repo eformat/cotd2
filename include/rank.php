@@ -26,16 +26,16 @@ $_SESSION['ranks'] = array(
 // Maintain order as per 'items' array
 
 $_SESSION['items'] = array( 
-    'cities/adelaide',
-    'cities/melbourne',
-    'cities/sydney',
-    'cities/brisbane',
-    'cities/perth',
-    'cities/hobart',
-    'cities/canberra',
-    'cities/auckland',
-    'cities/wellington',
-    'cities/christchurch'
+    'adelaide',
+    'melbourne',
+    'sydney',
+    'brisbane',
+    'perth',
+    'hobart',
+    'canberra',
+    'auckland',
+    'wellington',
+    'christchurch'
 );
 
 $_SESSION['titles'] = array( 

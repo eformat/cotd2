@@ -91,7 +91,7 @@ cache: false
 </head>
 <body>
 
-<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'images/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-rating=<?php echo $_SESSION['ratings'][$itemno]; ?> data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
+<div data-role="page" id=<?php echo $item; ?> style="background-image:url( <?php echo 'images/cities/'.$item.'.jpg'; ?>);" class="demo-page" data-dom-cache="true" data-theme="a" data-rating=<?php echo $_SESSION['ratings'][$itemno]; ?> data-prev=<?php echo $_SESSION['prev'][$itemno]; ?> data-next=<?php echo $_SESSION['next'][$itemno]; ?> >
 
 	<div id="help" class="trivia ui-content" data-role="popup" data-position-to="window" data-tolerance="50,30,30,30" data-theme="b">
 				<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
