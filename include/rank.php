@@ -26,43 +26,43 @@ $_SESSION['ranks'] = array(
 // Maintain order as per 'items' array
 
 $_SESSION['items'] = array( 
-    'adelaide',
-    'melbourne',
-    'sydney',
-    'brisbane',
-    'perth',
-    'hobart',
-    'canberra',
-    'auckland',
-    'wellington',
-    'christchurch'
+    'cities/adelaide',
+    'cities/melbourne',
+    'cities/sydney',
+    'cities/brisbane',
+    'cities/perth',
+    'cities/hobart',
+    'cities/canberra',
+    'cities/auckland',
+    'cities/wellington',
+    'cities/christchurch'
 );
 
 $_SESSION['titles'] = array( 
-    'Adelaide Cat',
-    'Melbourne Cat',
-    'Sydney Cat',
-    'Brisbane Cat',
-    'Perth Cat',
-    'Hobart Cat',
-    'Canberra Cat',
-    'Auckland Cat',
-    'Wellington Cat',
-    'Christchurch Cat'
+    'Adelaide',
+    'Melbourne',
+    'Sydney',
+    'Brisbane',
+    'Perth',
+    'Hobart',
+    'Canberra',
+    'Auckland',
+    'Wellington',
+    'Christchurch'
 );
 
 // Change trivia here
 $_SESSION['trivias'] = array( 
-    '<p>My name is Le Cornu and I live in Adelaide. My dad plays for the Adelaide Crows. He has a big mullet which I snuggle into when he is asleep. <small>Like me and we can watch the footie together. </small></p>',
-    '<p>My name is Rialto and my house is in Melbourne. I like to go to Philosophy Meetups. My favourite is Descates. He said: I think therefore I cat. <small>Like me and we can workshop your existential mid-life crisis over some wine and cheese.</small></p>',
-    '<p>My name is Seidler and I am from Sydney. I do not go out at night any more since they implemented the lock out laws. <small>Like me and we can talk about Sydney property prices.</small></p>',
-    '<p>My name is Gabba and I am from Brisbane. I love it here because the floods bring fish straight to my door step. <small>Like me and we can go fishing together.</small></p>',
-    '<p>My name is Cottlesloe and I was born in Perth. My parents work FIFO at the mines so I do not get to see them much. <small>Like me and I can stay with you every second week.</small></p>',
-    '<p>My name is Mona and I am in Hobart. There is not much to do here so thank goodness for the NBN. <small>Like me and we can watch youtube cat videos using broadband.</small></p>',
-    '<p>My name is Burley and my post office box is in Canberra. The Government appointed me into a senior position at the Human Rights Commission. <small>Like me and we can obsess over repealing section 18C together.</small></p>',
-    '<p>My name is Ponsonby and I live in Auckland. I made a satellite launch vehicle using a ball of wool, 3 paper clips and a tub of bees wax. <small>Like me and we can build a mud brick metropolis together.</small></p>',
-    '<p>My name is Massey and I am in Wellington. I am a contender for Secretary General of the United Nations. <small>Like me unless you rather it be Kevin Rudd.</small></p>',
-    '<p>My name is Twizel and I from Christchurch. I had a bit role in the Lord of the Rings trilogy, but so did everyone else. <small>Like me and we can geek out on LOTR trivia for hours on end. </small></p>'
+'<p>Among most liveable cities in the world. An extraordinary achievement given so few live there. Green credentials backed by policy of frequent random power outages. <small>Lord Mayor:&nbsp;Martin Haese</small></p>',
+'<p>Famous for its dark narrow alley ways and cafe culture. When ordering do as the locals do and use the expression: Where is my goddam latte? The barista will love you for it. <small>Lord Mayor:&nbsp;Robert Doyle</small></p>',
+'<p>The international city. Features most expensive airport parking in the world. Dine before 8pm to beat the lockout laws. <small>Lord Mayor:&nbsp;Clover Moore</small></p>',
+'<p>Multiple modes of transport to get you quickly back to the airport including train, taxi and tinny during the wet season. The dry season occurs on August 21 at approximately 2:00 pm. <small>Lord Mayor:&nbsp;Graham Quirk</small></p>',
+'<p>Perth. What is left to be said that has not been said. A lot actually as little has been said. <small>Lord Mayor:&nbsp;Lisa Scaffidi</small></p>',
+'<p>Famous for the record breaking MONA museum. MONA features in all 10 spots of the top 10 things to do. <small>Lord Mayor:&nbsp;Sue Hickey</small></p>',
+'<p>A resident of Canberra is known as a "Canberran". The site of Canberra was selected for the location of the nations capital in 1908 as a compromise between rivals Sydney and Melbourne<small>Canberra has no Lord Mayor</small></p>',
+'<p>Built on one of the world’s youngest volcanic fields, Auckland is dotted with over 50 volcanoes<small>Lord Mayor:&nbsp;Len Brown</small></p>',
+'<p>Wellington is a super cool and small city. So small in fact that 18,000 of the city’s residents walk or jog to work. <small>Lord Mayor:&nbsp;Celia Wade-Brown</small></p>',
+'<p>As a result of the earthquake, almost 30 million tonnes of ice fell off the Tasman Glacier, resulting in effective tsunami conditions on the Tasman Lake<small>Lord Mayor:&nbsp;Lianne Dalziel</small></p>'    
 );
 
 ?>
