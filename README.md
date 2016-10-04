@@ -17,6 +17,28 @@ Visit example at http://cotd-spicozzi.rhcloud.com/
     oc new-app openshift/php:5.6~https://github.com/<repo>/cotd2.git
     oc expose svc cotd2
 
+# A/B Deployments
+
+Deploy two versions of the application into your project
+
+    oc new-app openshift/php:5.6~https://github.com/eformat/cotd2.git#master --name=master
+    oc new-app openshift/php:5.6~https://github.com/eformat/cotd2.git#feature --name=feature
+
+Create a route for the master service
+
+    oc expose service master --hostname=cotd.apps.eformat.nz --name=cotd2
+
+Change the H/A proxy to use round robin instead of leastconn strategy
+
+    oc annotate route/cotd2 haproxy.router.openshift.io/balance=roundrobin
+
+Play around with weighting to each version
+
+    oc set route-backends routes/cotd2 master=100 feature=0
+    oc set route-backends routes/cotd2 master=0 feature=100
+    oc set route-backends routes/cotd2 master=50 feature=50
+    oc set route-backends routes/cotd2 --adjust feature=+10%
+
 # Developing on the fly in Openshift3
 
 Edit the buildconfig:
